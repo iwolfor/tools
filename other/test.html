@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      margin: 100px auto;
+      max-width: 1500px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td {
+      background: #ccc;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <table border="1">
+      <thead>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="one">1</td>
+          <td class="two">2</td>
+          <td class="three">3</td>
+        </tr>
+        <tr>
+          <td class="one">1</td>
+          <td class="two">2</td>
+          <td class="three">3</td>
+        </tr>
+        <tr>
+          <td class="one">1</td>
+          <td class="two">2</td>
+          <td class="three">3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+
+    function colorManager() {
+      var oneList = Array.prototype.slice.call(document.getElementsByClassName('one'))
+      var oneItem = getComputedStyle(oneList[0]).width.replace(/px/g, '') - 0
+      if (oneItem < 300) {
+        oneList.forEach(function(item) {
+          item.style.backgroundColor = 'red'
+        })
+      } else {
+        oneList.forEach(function(item) {
+          item.style.backgroundColor = '#ccc'
+        })
+      }
+    }
+
+    colorManager()
+
+    window.onresize = function () {
+      colorManager()
+    }
+  </script>
+</body>
+
+</html>
